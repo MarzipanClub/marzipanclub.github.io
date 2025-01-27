@@ -1,1 +1,116 @@
-Hello, World!
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marzipan Club</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@421&family=Saira&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Noto Sans', sans-serif;
+            color: #fff;
+            background: linear-gradient(135deg, #3b005a, #5c007a);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: -25%;
+            left: -25%;
+            width: 150%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent 60%);
+            animation: rotateBackground 10s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes rotateBackground {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            z-index: 1;
+        }
+
+        h1 {
+            font-family: 'Saira', sans-serif;
+            font-size: 4rem;
+            margin: 0;
+            color: rgba(255, 255, 255, 0.8);
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin: 10px 0;
+            max-width: 600px;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .cta {
+            margin-top: 20px;
+            z-index: 1;
+        }
+
+        .cta a {
+            text-decoration: none;
+            color: #ffffff;
+            background: transparent;
+            padding: 12px 20px;
+            font-size: 1.2rem;
+            border: 2px solid #ffffff;
+            border-radius: 8px;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .cta a:hover {
+            background: #ffffff;
+            color: #5c007a;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 10px;
+            font-size: 0.8rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Marzipan Club</h1>
+        <p>Innovative software products powered by cutting-edge technology. Our engineering team has over a decade of
+            experience creating AI-driven business solutions.</p>
+    </header>
+
+    <div class="cta">
+        <a href="mailto:hello@marzipanclub.com">Email Us</a>
+    </div>
+
+    <footer>
+        &copy; 2025 Marzipan Club. All rights reserved.
+    </footer>
+</body>
+
+</html>
