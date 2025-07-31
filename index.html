@@ -5,108 +5,145 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marzipan Club</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@421&family=Saira&display=swap" rel="stylesheet">
     <style>
+        :root {
+            /* Light Theme Defaults */
+            --text-color: #1a1a1a;
+            --header-color: #000;
+            --bg: #f0f2f5;
+            --card-bg: rgba(255, 255, 255, 0.6);
+            --card-border: rgba(0, 0, 0, 0.05);
+            --button-bg: #5c007a;
+            --button-text: #ffffff;
+            --button-hover-bg: #3b005a;
+            --footer-text: rgba(0, 0, 0, 0.6);
+            --bg-gradient: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --text-color: #e0e0e0;
+                --header-color: #ffffff;
+                --bg: #121212;
+                --card-bg: rgba(40, 40, 40, 0.5);
+                --card-border: rgba(255, 255, 255, 0.1);
+                --button-bg: #a855f7;
+                --button-text: #121212;
+                --button-hover-bg: #9333ea;
+                --footer-text: rgba(255, 255, 255, 0.7);
+                --bg-gradient: linear-gradient(135deg, #1f1f22 0%, #121212 100%);
+            }
+        }
+
         body {
             margin: 0;
-            font-family: 'Noto Sans', sans-serif;
-            color: #fff;
-            background: linear-gradient(135deg, #3b005a, #5c007a);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            transition: background 0.5s ease, color 0.5s ease;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
             overflow: hidden;
             position: relative;
+            background: var(--bg);
+            color: var(--text-color);
         }
 
         body::before {
             content: "";
             position: absolute;
-            top: -25%;
-            left: -25%;
-            width: 150%;
-            height: 150%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent 60%);
-            animation: rotateBackground 10s linear infinite;
-            z-index: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            transition: opacity 0.8s ease-in-out;
+            z-index: -1;
+            background: var(--bg-gradient);
+            opacity: 1;
         }
 
-        @keyframes rotateBackground {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 20px;
+        .container {
+            max-width: 800px;
+            padding: 2rem;
             z-index: 1;
+            width: 100%;
+        }
+
+        .card {
+            padding: 2.5rem 3rem;
+            border-radius: 20px;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            text-align: center;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+            transition: background-color 0.5s ease, border 0.5s ease;
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
         }
 
         h1 {
-            font-family: 'Saira', sans-serif;
             font-size: 4rem;
             margin: 0;
-            color: rgba(255, 255, 255, 0.8);
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+            color: var(--header-color);
         }
 
         p {
             font-size: 1.2rem;
-            margin: 10px 0;
+            margin: 20px 0 30px;
+            line-height: 1.6;
             max-width: 600px;
-            text-align: center;
-            z-index: 1;
-        }
-
-        .cta {
-            margin-top: 20px;
-            z-index: 1;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .cta a {
             text-decoration: none;
-            color: #ffffff;
-            background: transparent;
-            padding: 12px 20px;
+            padding: 15px 35px;
             font-size: 1.2rem;
-            border: 2px solid #ffffff;
-            border-radius: 8px;
-            transition: background 0.3s, color 0.3s;
+            border-radius: 50px;
+            transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+            display: inline-block;
+            border: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            background-color: var(--button-bg);
+            color: var(--button-text);
         }
 
         .cta a:hover {
-            background: #ffffff;
-            color: #5c007a;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            background-color: var(--button-hover-bg);
         }
 
         footer {
             position: absolute;
-            bottom: 10px;
-            font-size: 0.8rem;
+            bottom: 20px;
+            font-size: 0.9rem;
             text-align: center;
-            color: rgba(255, 255, 255, 0.7);
+            width: 100%;
             z-index: 1;
+            color: var(--footer-text);
         }
     </style>
 </head>
 
 <body>
-    <header>
-        <h1>Marzipan Club</h1>
-        <p>We craft innovative software using bleeding-edge technology. Our team builds high-performance, AI-driven
-            solutions, harnessing the full potential of Large Language Models with the speed and safety of Rust.</p>
-    </header>
+    <main class="container">
+        <div class="card">
+            <header>
+                <h1>Marzipan Club</h1>
+                <p>We craft innovative software using bleeding-edge technology. Our team builds high-performance, AI-driven
+                    solutions, harnessing the full potential of Large Language Models with the speed and safety of Rust.</p>
+            </header>
 
-    <div class="cta">
-        <a href="mailto:hello@marzipanclub.com">Email Us</a>
-    </div>
+            <div class="cta">
+                <a href="mailto:hello@marzipanclub.com">Email Us</a>
+            </div>
+        </div>
+    </main>
 
     <footer>
         &copy; 2025 Marzipan Club. All rights reserved.
