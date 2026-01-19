@@ -4,6 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
     <title>Marzipan Club</title>
     <style>
         :root {
@@ -35,15 +39,26 @@
             }
         }
 
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
         body {
             margin: 0;
+            padding: 0;
+            width: 100%;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
             transition: background 0.5s ease, color 0.5s ease;
             display: flex;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            overflow: hidden;
+            overflow-x: hidden;
             position: relative;
             background: var(--bg);
             color: var(--text-color);
@@ -127,6 +142,49 @@
             z-index: 1;
             color: var(--footer-text);
         }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .container {
+                padding: 3rem 1.5rem;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .card {
+                padding: 0;
+                background-color: transparent;
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
+                box-shadow: none;
+                border: none;
+                border-radius: 0;
+                width: 100%;
+            }
+
+            h1 {
+                font-size: 2.75rem;
+                line-height: 1.2;
+                word-wrap: break-word;
+            }
+
+            p {
+                font-size: 1.125rem;
+                line-height: 1.6;
+                word-wrap: break-word;
+            }
+
+            .cta a {
+                padding: 14px 32px;
+                font-size: 1.1rem;
+            }
+
+            footer {
+                font-size: 0.85rem;
+                width: 100%;
+                box-sizing: border-box;
+            }
+        }
     </style>
 </head>
 
@@ -143,7 +201,7 @@
             </header>
 
             <div class="cta">
-                <a href="mailto:hello@marzipanclub.com">Say hi to me!</a>
+                <a href="mailto:hello@marzipanclub.com">Say hello!</a>
             </div>
         </div>
     </main>
